@@ -1,0 +1,142 @@
+.page_footer{
+	 position:absolute;
+	 bottom: 0px;
+	 width:100%;
+	 text-align:center;
+	 FONT-Size: 15px;
+	 background:#d8e9f4;
+	 line-height:40px; 
+}
+.page_main{
+ 	position: absolute;
+ 	width: 100%;
+ 	background-color: #f9f9f9;
+ 	/*display: block;*/
+}
+.page_content{
+ 	width: 73%;
+ 	padding-left: 1%;
+ 	padding-right: 1%;
+ 	float: right;
+ 	margin-bottom: 3em;
+}
+.page_menu{
+ 	position: relative;
+ 	float: left;
+ 	width: 25%;
+
+}
+.page_doc{
+	margin: .5em;
+	padding: .5em;
+	background: #fff;
+	border: 1px solid #eee;
+	border-radius: .3125em;
+}
+.page_doc_content{
+	font-size: 0.8em;
+}
+.page_doc h3{
+	font-size: 1.2em;
+	font-weight: 300;
+	color: #3eb249;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: .25em;
+	margin: 0 0 .5em;
+}
+.page_doc h3 .view{
+	font-size: 0.6em;
+	position: relative;
+ 	float: right;
+ 	color: #333;
+}
+.page_doc A{
+	line-height: 2.5em;
+}
+.mobile_button{
+	position: relative;
+	color: #fff;
+	background-color: #31b0d5;
+	font-size: 1em;
+ 	padding: .7em 1em;
+ 	display: inline-block;
+ 	text-align: center;
+ 	width: 49%;
+ 	border: 1px solid #269abc;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.mobile_button:hover{
+ 	background-color: #289dbd;
+ 	border: 1px solid #168aac;
+ 	color: #fff;
+}
+
+.menuList{
+	list-style: none;
+    padding: 0;
+    margin-bottom: 3em;
+}
+.menuList>li>a{
+	font-size: 1em;
+	display: block;
+    border-bottom: 1px solid;
+    white-space: nowrap;
+    line-height: 1.6;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.first_child{
+	border-top-right-radius: inherit;
+	border-top-left-radius: inherit;
+}
+.mobile_menu_btn{
+	display: none;
+}
+.page_show_mobile{
+	left: 0;
+	/*top: 5%;*/
+	position: absolute;
+ 	float: left;
+	width: 97%;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	z-index: 1001;
+}
+.no_show{
+	display: none;
+}
+
+@media (max-width: 60em) {
+	.mobile_menu_btn{
+		width: 2em;
+		height: 2em;
+		display: block;
+		border-radius: .3125em;
+		margin-left: .3125em;
+	}
+	.mobile_menu_btn img{
+		padding: 2%;
+		width: 90%;
+	}
+	.mobile_menu_btn:hover{
+		border: 1px solid #ddd;
+	}
+	.page_menu{
+		display: none;
+	}
+	.page_content{
+		width: 98%;
+		float: none;
+		margin-bottom: 4em;
+	}
+	.mobile_button, .page_doc_content, .page_doc h3{
+		font-size: 1em;
+	}
+	pre {
+		font-size: 0.8em;
+	}
+	.page_footer{
+		 line-height:20px; 
+	}
+}

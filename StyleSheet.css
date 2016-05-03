@@ -1,0 +1,142 @@
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+a {
+	color: #2e6ab1;
+	text-decoration: none; /* no underline */
+}
+a:hover {
+	font-weight: bold;
+	/*background-color: lightyellow;*/
+}
+body, ul, ol, a {
+	font-size: 1em;
+	font-family: 'Helvetica Neue', Helvetica, 微軟正黑體, 微软雅黑, 'LiHei Pro', HeitiTC, Arial, sans-serif;
+}
+div{
+	 -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	 -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	 box-sizing: border-box;
+}
+h3 {
+	font-family: verdana,helvetica,arial,sans-serif;
+	display: block;
+	font-size: 1.2em;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+
+	font-weight: normal;
+}
+hr {
+	background-color: #d4d4d4;
+	color: #d4d4d4;
+	height: 1px;
+	border: 0px;
+	clear: both;
+}
+
+pre {
+	word-wrap: break-word;
+}
+.title
+{
+	color:#444;
+	font-size: 2em;
+	font-weight:bold;
+}
+.container
+{
+	margin:0 auto;
+	width:70%;
+}
+.container .content
+{
+	margin-left:30px;
+}
+.menu
+{
+	cursor:pointer;
+	color: #2e6ab1;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height:20px;
+	padding:5px 15px;
+	border-radius: 4px 4px 0 0;
+}
+.menu:hover
+{
+	background-color: lightyellow;
+}
+.DocTable{
+	border-spacing:0;
+	border-collapse:collapse;
+	width:100%
+}
+.DocTable td, th{
+	border:1px solid #cccccc; 
+	color:#555555;
+	line-height:28px;
+	padding: 5px;
+}
+.DocTable th{
+	text-align:center;
+	background-color:#efefef;
+}
+.list {
+	padding-top: 10px;
+}
+.pageSlide{
+	display: none;
+	min-height: 500px;
+}
+.slide{
+	max-height: 0;
+	overflow: hidden;
+	width:700px;
+
+	-webkit-transition: max-height 1.5s;
+	-moz-transition: max-height 1.5s;
+	-o-transition: max-height 1.5s;
+	transition: max-height 1.5s;
+}
+
+.slide_link {
+	font-size: 1em;
+	cursor: help;
+	color: #3d80df;
+	line-height: 40px;
+}
+.slide_link:hover {
+	background-color:#ebffaa;
+}
+
+@media (max-width: 60em) {
+	.title{
+		font-size: 1.6em;
+	}
+	.slide_link {
+		line-height: 60px;
+	}
+	.menu
+	{
+		font-size: 1.6em;
+	}
+	.tdTitle_Normal{
+		display: none;
+	}
+	pre {
+		font-size: 1.5em;
+	}
+	.container
+	{
+		width:100%;
+		padding-left:10px;
+	}
+	.ul{
+		margin-left: 20px;
+	}
+}

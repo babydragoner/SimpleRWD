@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<HTML>
+  <HEAD>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.25" />
+		<meta name="description" content="your web description" />
+
+		<link type="text/css" rel="stylesheet" href="StyleSheet.css" />
+		<link type="text/css" rel="stylesheet" href="doc.css" />
+
+		<script type="text/javascript" src="./oGrid/oGrid.util.js"></script>
+
+	<title>web title</title>
+  </HEAD>
+<style type="text/css">
+
+</style>
+  <body>
+
+  	<div class="page_main">
+		<div style="background:#d8e9f4;display:block;">
+			<div class="container">
+
+			  <table cellpadding="0" cellspacing="0" style="width:100%;">
+						<tbody>
+							<tr>
+								<td ><div id="menuBtn" class="mobile_menu_btn" onclick="show_menubtn();"><img src="bars-black.png" /></div></td>
+								<td style="height:62px;padding-left:10px;">
+									<a href="/index.html" class="title">web title</a><br />
+									<a href="/index.html" class="tdTitle_Normal" style="color:#999;">welcome ...</a>
+								</td>
+						</tr>
+						</tbody>
+			  </table>
+			  
+			</div>
+		</div>
+		<div class="container">
+			<div id="topMenu" class="page_menu">
+				<ul id="myMenu" class="menuList">
+					<li>
+						<A href="/">main page</A>
+					</li>
+					<li>
+						<A href="./about.html">about</A>
+					</li>
+				</ul>
+				<p>&nbsp;<p>
+
+			</div>
+
+			<div id="docDilog" class="no_show" >
+				<button class="mobile_button" style="width:100%" onclick="docDilog_close();">Close</button>
+				<div id="doc_content" class="page_doc"></div>
+			</div>
+
+			<div class="page_content" id="page_content" >
+				<div id="docs">
+				</div>
+				<div class="page_doc" id="testPD" style="display:block;">
+					<h3>title</h3>
+					<div ID ="test" class="page_doc_content">test doc</div>
+				</div>
+
+				<button id="btnLoadDoc" class="mobile_button" onclick="loadDoc()">More ...</button>
+				<button class="mobile_button" onclick="window.document.body.scrollTop = 0;">Top</button>
+				<br>&nbsp;<br>
+
+			</div>
+		</div>
+
+	
+		<div id="page_footer" class="page_footer" >
+
+			Powered by <A href="babydragoner.html"> babydragoner</A> / Copyright  ?  2013 - watson chen
+		</div>
+	</div>
+
+
+<SCRIPT language="javascript">
+
+	var myPage, Pages, PageMaxCount, pageIndex;
+	var objDocs;
+
+	pageIndex = 1;
+	objDocs = {};
+	show_docs(pageIndex);
+
+	var isLoading = false;
+	function loadDoc () {
+		if(!isLoading){
+			isLoading = true;
+			var fbtn = document.getElementById("btnLoadDoc");
+			fbtn.innerHTML = "載入中...";
+			setTimeout(function () {
+				pageIndex += 1;
+				show_docs(pageIndex);
+				fbtn.innerHTML = "加載更多";
+				isLoading = false;
+			}, 100);
+		}
+	}
+	function show_docs(fpageIndex) {
+		var pageCount = 8;
+		var furl = "./WebDoc.php?type=data";
+		
+		var fajax = new obj4u.Ajax();
+		var res = fajax.sync({
+			method: "POST",
+			url: furl,
+			data: "page="+fpageIndex+"&rows="+pageCount
+		});
+		var obj = res;
+		PageMaxCount = parseInt(obj.total) / pageCount;
+		if(PageMaxCount <= fpageIndex){
+			var fbtn = document.getElementById("btnLoadDoc");
+			fbtn.className = "no_show";
+		}
+		var fdocs = document.getElementById("docs");
+		for(var i in obj.rows) {
+			var doc = obj.rows[i];
+			objDocs[doc.DocNum] = doc;
+			var div = document.createElement("div");
+			div.className = "page_doc";
+			div.innerHTML = "<h3><A href='./WebDoc.php?n="+doc.DocNum+"' onclick='return false;'>"+doc.DocTitle+"</A></h3>"+
+				"<div class='page_doc_content'>" +doc.DocDescription +"</div>";
+			clickme(div, doc.DocNum);
+			fdocs.appendChild(div);
+		}
+	}
+	function clickme(o,DocNum)
+	{
+		o.onclick=function(){ docDilog_show(DocNum); }
+	}
+
+	function docDilog_show(docNum) {
+		window.open("WebDoc.php?n="+docNum, "_blank");
+		return false;
+	}
+
+	function docDilog_close() {
+		var docD = document.getElementById("docDilog");
+		docD.className = "no_show";
+	}
+	function show_menubtn() {
+		var menu = document.getElementById("topMenu");
+		if(menu.className == "page_menu")
+			menu.className = "page_show_mobile";
+		else
+			menu.className = "page_menu"
+	}
+
+</SCRIPT>
+
+
+  </body>
+</HTML>
