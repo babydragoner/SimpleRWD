@@ -91,11 +91,11 @@
 		if(!isLoading){
 			isLoading = true;
 			var fbtn = document.getElementById("btnLoadDoc");
-			fbtn.innerHTML = "載入中...";
+			fbtn.innerHTML = "loading ...";
 			setTimeout(function () {
 				pageIndex += 1;
 				show_docs(pageIndex);
-				fbtn.innerHTML = "加載更多";
+				fbtn.innerHTML = "Get more document";
 				isLoading = false;
 			}, 100);
 		}
