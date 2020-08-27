@@ -13,4 +13,4 @@
 想調整 css 也可以先從 index.html 來著手。
 
 ### About oGrid Library
-本專案有使用的程式庫，可在參考我另一個專案的程式 [oGrid] (https://github.com/babydragoner/oGrid )。
+本專案有使用的程式庫，可在參考我另一個專案的程式 [oGrid](https://github.com/babydragoner/oGrid )。
