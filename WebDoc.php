@@ -7,14 +7,14 @@
 	$dal = DALFactory::getInstance($prgName);
 	$myPage = new DG_Page($dal);
 
-	if (!empty($_REQUEST['type']) )
+	if (!empty($_REQUEST['type']) ) //  had query of parameter
 	{
 		$_POST['sort'] = "CreDate";
 		$_POST['order'] = "desc";
 		$type = $_REQUEST['type'];
 		header("Content-Type: application/json; charset=utf-8");
 		if($type == "data" || $type == "qry"){
-			if($type == "data"){
+			if($type == "data"){  // get more document
 				
 				$res = array();
 				
@@ -33,14 +33,14 @@
 				$res["rows"] = $items2;
 				
 				echo json_encode($res); 
-			}else if($type == "qry"){
+			}else if($type == "qry"){  // get specific type of documents
 
 				$items = $dal->getData($_REQUEST);
 
 				echo json_encode($items);
 			}
 		}
-	}else{
+	}else{  // show specific of document
 		$criValues = array();
 		if (!empty($_REQUEST["DocNum"]) ){
 			$criValues['DocNum'] = $_REQUEST['DocNum'];
