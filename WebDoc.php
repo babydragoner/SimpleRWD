@@ -1,11 +1,16 @@
-﻿<?php
-	// header("Access-Control-Allow-Origin: *");
-	include dirname(__FILE__).'/db/DAL/STDAL.php';
+<?php
+	include dirname(__FILE__).'/db/DAL/Web_Document.php';
 	include dirname(__FILE__).'/util/DG_Page.php';
-
+try {
+    
 	$prgName = "Web_Document";	
-	$dal = DALFactory::getInstance($prgName);
+	$dal = new DAL_Web_Document();
 	$myPage = new DG_Page($dal);
+
+} catch (Exception $e) {
+    print $e->getMessage();
+exit();
+}
 
 	if (!empty($_REQUEST['type']) ) //  had query of parameter
 	{
@@ -15,9 +20,9 @@
 		header("Content-Type: application/json; charset=utf-8");
 		if($type == "data" || $type == "qry"){
 			if($type == "data"){  // get more document
-				
 				$res = array();
 				
+				$_REQUEST['DBSTS'] = "A";
 				$res["total"] = $dal->getTotalCount();
 				
 				$items = $dal->getData($_REQUEST);
